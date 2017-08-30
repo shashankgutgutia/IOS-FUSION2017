@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ImageView arrow;
     private GestureDetectorCompat gestureObject;
 
     @Override
@@ -17,6 +20,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
+        arrow = (ImageView) findViewById(R.id.arrow);
+        arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /* add if case
+                if authenticated, intent should go to NavDraActivity rather than QrActivity */
+                Intent intent = new Intent(MainActivity.this, QrActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
