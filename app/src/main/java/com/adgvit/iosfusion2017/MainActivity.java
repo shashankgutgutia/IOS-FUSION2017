@@ -6,10 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.widget.Toast;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
     private GestureDetectorCompat gestureObject;
+    private IntentIntegrator qrScan;
+    private String name, reg_no;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
+        qrScan = new IntentIntegrator(this);
     }
 
     @Override
@@ -33,13 +43,41 @@ public class MainActivity extends AppCompatActivity {
         public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
             if(event2.getY() < event1.getY()) {
                 //down to up swipe
-                Intent in = new Intent(MainActivity.this, QrActivity.class);
-                startActivity(in);
+                //check for authentication here
+                qrScan.initiateScan();
             }
             else if(event2.getY() > event1.getY()) {
                 //up to down swipe
             }
             return true;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            if(result.getContents() == null) {
+                //if qrCode is empty
+                Toast.makeText(this, "Result not found", Toast.LENGTH_LONG).show();
+            } else {
+                //if qrCode has data
+                try {
+                    //converting the data to JSON
+                    JSONObject obj = new JSONObject(result.getContents());
+                    //set the values that are returned to the text views
+                    name = obj.getString("name");
+                    reg_no = obj.getString("reg_no");
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    //If control comes here
+                    //It means that encoded format doesn't match
+                    //ie, User scanned a QR code which isn't in our DB
+                    Toast.makeText(this, "Wrong QR Code", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
