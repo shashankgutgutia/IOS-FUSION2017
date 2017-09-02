@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private ImageView arrow;
     private GestureDetectorCompat gestureObject;
     private IntentIntegrator qrScan;
     private ImageView swipeButton;
@@ -32,7 +33,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         swipeButton.setOnClickListener(this);
 
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
+
         qrScan = new IntentIntegrator(this);
+        
+        arrow = (ImageView) findViewById(R.id.arrow);
+        arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /* add if case
+                if authenticated, intent should go to NavDraActivity rather than QrActivity */
+                Intent intent = new Intent(MainActivity.this, QrActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
