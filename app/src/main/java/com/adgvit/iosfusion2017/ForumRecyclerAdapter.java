@@ -1,7 +1,6 @@
 package com.adgvit.iosfusion2017;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +31,6 @@ public class ForumRecyclerAdapter extends RecyclerView.Adapter<ForumRecyclerAdap
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         ForumItem current = data.get(position);
-        holder.cardView.setVisibility(View.VISIBLE);
         holder.doubt.setText(current.question);
     }
 
@@ -42,14 +40,12 @@ public class ForumRecyclerAdapter extends RecyclerView.Adapter<ForumRecyclerAdap
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        CardView cardView;
+        
         TextView doubt;
         ImageButton upVote;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            cardView = (CardView) itemView.findViewById(R.id.card);
             doubt = (TextView) itemView.findViewById(R.id.ques);
             upVote = (ImageButton) itemView.findViewById(R.id.upVote);
         }
