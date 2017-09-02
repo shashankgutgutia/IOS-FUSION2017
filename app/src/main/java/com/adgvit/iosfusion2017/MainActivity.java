@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private GestureDetectorCompat gestureObject;
     private IntentIntegrator qrScan;
     private ImageView swipeButton;
-    private String name, reg_no;
+    public String name, regno,mobile,email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 /* add if case
                 if authenticated, intent should go to NavDraActivity rather than QrActivity */
-                Intent intent = new Intent(MainActivity.this, QrActivity.class);
-                startActivity(intent);
+                qrScan.initiateScan();
             }
         });
     }
@@ -92,7 +91,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     JSONObject obj = new JSONObject(result.getContents());
                     //set the values that are returned to the text views
                     name = obj.getString("name");
-                    reg_no = obj.getString("reg_no");
+                    regno = obj.getString("regno");
+                    mobile = obj.getString("mobile");
+                    email = obj.getString("email");
+
+                    Intent intent=new Intent(MainActivity.this,NavDraActivity.class);
+                    startActivity(intent);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
