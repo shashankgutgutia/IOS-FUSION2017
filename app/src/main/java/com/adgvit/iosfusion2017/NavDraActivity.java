@@ -81,6 +81,7 @@ public class NavDraActivity extends AppCompatActivity
             viewIsAtHome = true;
         } else if (viewId == R.id.wifi) {
             getSupportActionBar().setTitle("Wi-fi");
+            fragment=new Wifi();
             viewIsAtHome = false;
         } else if (viewId == R.id.refresh) {
             viewIsAtHome = false;
@@ -91,6 +92,12 @@ public class NavDraActivity extends AppCompatActivity
         } else if (viewId == R.id.forum) {
             viewIsAtHome = false;
             getSupportActionBar().setTitle("Forum");
+            fragment=new Forum();
+        }
+        else if (viewId == R.id.aboutus) {
+            viewIsAtHome = false;
+            getSupportActionBar().setTitle("About Us");
+            fragment=new AboutUs();
         }
         if (fragment!=null){
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();

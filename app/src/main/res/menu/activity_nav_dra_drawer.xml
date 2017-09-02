@@ -24,6 +24,11 @@
             android:icon="@drawable/forum"
             android:title="Forum" />
 
+        <item
+            android:id="@+id/aboutus"
+            android:icon="@drawable/forum"
+            android:title="About Us" />
+
     </group>
 
 </menu>
