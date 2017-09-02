@@ -1,11 +1,13 @@
 package com.adgvit.iosfusion2017;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -14,16 +16,20 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private GestureDetectorCompat gestureObject;
     private IntentIntegrator qrScan;
+    private ImageView swipeButton;
     private String name, reg_no;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        swipeButton = (ImageView) findViewById(R.id.arrow);
+        swipeButton.setOnClickListener(this);
 
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
         qrScan = new IntentIntegrator(this);
@@ -33,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureObject.onTouchEvent(event);
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public void onClick(View v) {
+        //check for authentication
+        qrScan.initiateScan();
     }
 
     public class LearnGesture extends GestureDetector.SimpleOnGestureListener {
