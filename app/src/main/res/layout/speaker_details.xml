@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@drawable/speaker_ticket"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/speakerImg"
+            android:src="@drawable/rishabh"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/fb"
+            android:background="@drawable/fb"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/speakerImg"
+            android:layout_alignStart="@+id/speakerImg" />
+
+        <ImageButton
+            android:id="@+id/git"
+            android:background="@drawable/github"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/speakerImg"/>
+
+        <ImageButton
+            android:id="@+id/link"
+            android:background="@drawable/link"
+            android:layout_below="@+id/speakerImg"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/speakerImg" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
