@@ -105,5 +105,4 @@ public class NavDraActivity extends AppCompatActivity
             ft.commit();
         }
     }
-
 }

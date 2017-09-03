@@ -40,7 +40,7 @@ public class ForumRecyclerAdapter extends RecyclerView.Adapter<ForumRecyclerAdap
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        
+
         TextView doubt;
         ImageButton upVote;
 
@@ -48,6 +48,21 @@ public class ForumRecyclerAdapter extends RecyclerView.Adapter<ForumRecyclerAdap
             super(itemView);
             doubt = (TextView) itemView.findViewById(R.id.ques);
             upVote = (ImageButton) itemView.findViewById(R.id.upVote);
+            Boolean clicked =new Boolean(false);
+            upVote.setTag(clicked);
+            upVote.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if((Boolean)upVote.getTag()==false){
+                        upVote.setImageResource(R.drawable.like);
+                        upVote.setTag(true);
+                    }
+                    else {
+                        upVote.setImageResource(R.drawable.like2);
+                        upVote.setTag(false);
+                    }
+                }
+            });
         }
     }
 }

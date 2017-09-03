@@ -16,18 +16,21 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:orientation="horizontal">
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
 
             <TextView
                 android:id="@+id/ques"
+                android:padding="10dp"
                 android:text="The user's question will be shown here"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <ImageButton
                 android:id="@+id/upVote"
-                android:src="@drawable/like"
+                android:src="@drawable/like2"
                 android:background="#ffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
