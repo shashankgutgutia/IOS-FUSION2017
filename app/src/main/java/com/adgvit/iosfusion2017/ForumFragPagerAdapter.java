@@ -16,9 +16,7 @@ public class ForumFragPagerAdapter extends android.support.v4.app.FragmentPagerA
         switch (position) {
             case 0: UserFragment userFragment = new UserFragment();
                     return userFragment;
-            case 1: ForumFragment forumFragment = new ForumFragment();
-                    return forumFragment;
-            case 2: TrendingFragment trendingFragment = new TrendingFragment();
+            case 1: TrendingFragment trendingFragment = new TrendingFragment();
                     return trendingFragment;
         }
         return null;
@@ -26,15 +24,14 @@ public class ForumFragPagerAdapter extends android.support.v4.app.FragmentPagerA
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0: return "FAQs";
-            case 1: return "FORUM";
-            case 2: return "TRENDING";
+            case 1: return "TRENDING";
         }
         return null;
     }

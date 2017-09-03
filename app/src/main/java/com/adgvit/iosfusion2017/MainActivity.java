@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private GestureDetectorCompat gestureObject;
     private IntentIntegrator qrScan;
     private ImageView swipeButton;
-    public String name, regno,mobile,email;
+    public static String name,regno,mobile,email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     email = obj.getString("email");
 
                     Intent intent=new Intent(MainActivity.this,NavDraActivity.class);
+//                    intent.putExtra("PartName",name);
                     startActivity(intent);
 
                 } catch (JSONException e) {

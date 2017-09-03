@@ -32,6 +32,11 @@ public class NavDraActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        displayview(R.id.time);
+
+//        String partName=getIntent().getStringExtra("PartName");
+//        String partname=MainActivity.name;
+//        String partreg=MainActivity.regno;
     }
 
     @Override

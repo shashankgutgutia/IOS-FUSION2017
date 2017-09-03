@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +18,25 @@ public class UserFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private ForumRecyclerAdapter adapter;
+    private EditText doubt;
+    private Button Send;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_user, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.userRecycler);
+        doubt = (EditText) rootView.findViewById(R.id.doubt);
         adapter = new ForumRecyclerAdapter(getActivity(), getData());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        Send = (Button) rootView.findViewById(R.id.send);
+        Send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ques = doubt.getText().toString();
+                //POST ques to server
+            }
+        });
         // Inflate the layout for this fragment
         return rootView;
     }
