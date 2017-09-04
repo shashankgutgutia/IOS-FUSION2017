@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         
         arrow = (ImageView) findViewById(R.id.arrow);
         SharedPreferences sp = getSharedPreferences("key", 0);
-        login = Boolean.parseBoolean(sp.getString("datavalue",""));
+        //login = Boolean.parseBoolean(sp.getString("datavalue",""));
         Log.i("value of login", String.valueOf(login));
         arrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,10 +109,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     mobile = obj.getString("mobile");
                     email = obj.getString("email");
                     login = true;
-                    SharedPreferences sp = getSharedPreferences("key", 0);
+                    /*SharedPreferences sp = getSharedPreferences("key", 0);
                     SharedPreferences.Editor sedt = sp.edit();
                     sedt.putString("datavalue", String.valueOf(login));
-                    sedt.commit();
+                    sedt.commit();*/
                     Intent intent=new Intent(MainActivity.this,NavDraActivity.class);
 //                    intent.putExtra("PartName",name);
                     startActivity(intent);

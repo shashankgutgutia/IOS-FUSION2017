@@ -30,11 +30,11 @@ public class Speaker extends android.support.v4.app.Fragment implements View.OnC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.git:  Intent in = new Intent(Intent.ACTION_VIEW);
-                            in.setData(Uri.parse("github.com/rishabh19038"));
+                            in.setData(Uri.parse("https://www.github.com/rishabh19038"));
                             startActivity(in);
                             break;
             case R.id.fb:   Intent in2 = new Intent(Intent.ACTION_VIEW);
-                            in2.setData(Uri.parse("fb.com/rhmittal"));
+                            in2.setData(Uri.parse("https://www.facebook.com/rhmittal"));
                             startActivity(in2);
                             break;
             case R.id.link: Intent in3 = new Intent(Intent.ACTION_VIEW);
