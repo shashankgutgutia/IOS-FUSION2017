@@ -3,14 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/userRecycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/send"
-        android:layout_alignParentTop="true">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/user_swipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/userRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/send"
+            android:layout_alignParentTop="true">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <EditText
         android:id="@+id/doubt"
@@ -28,6 +35,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:text="POST"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorAccent"/>
 
 </RelativeLayout>
