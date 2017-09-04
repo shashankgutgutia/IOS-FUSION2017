@@ -8,13 +8,6 @@
     tools:context="com.adgvit.iosfusion2017.MainActivity">
 
     <ImageView
-        android:id="@+id/event"
-        android:src="@drawable/event"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageView
         android:id="@+id/arrow"
         android:src="@drawable/arrow"
         android:layout_width="wrap_content"

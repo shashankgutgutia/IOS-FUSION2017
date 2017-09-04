@@ -20,14 +20,13 @@
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/send" />
 
-    <Button
+    <ImageButton
         android:id="@+id/send"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:text="POST"
-        android:textColor="#ffffff"/>
+        />
 
 </RelativeLayout>

@@ -8,8 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class UserFragment extends Fragment {
     private RecyclerView recyclerView;
     private ForumRecyclerAdapter adapter;
     private EditText doubt;
-    private Button Send;
+    private ImageButton Send;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class UserFragment extends Fragment {
         adapter = new ForumRecyclerAdapter(getActivity(), getData());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        Send = (Button) rootView.findViewById(R.id.send);
+        Send = (ImageButton) rootView.findViewById(R.id.send);
         Send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

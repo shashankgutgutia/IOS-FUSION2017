@@ -15,4 +15,5 @@ public class Attendance extends Fragment {
         View rootView = inflater.inflate(R.layout.attendancelayout, container, false);
         return rootView;
     }
+
 }
