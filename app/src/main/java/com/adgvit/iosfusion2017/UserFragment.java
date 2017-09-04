@@ -21,9 +21,7 @@ public class UserFragment extends Fragment {
     private ForumRecyclerAdapter adapter;
     private EditText doubt;
     private ImageButton Send;
-    private Button Send;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-e4125ff9e3b51a1eed95da66167512d2128e68e8
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
