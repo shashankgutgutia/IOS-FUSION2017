@@ -3,6 +3,7 @@ package com.adgvit.iosfusion2017;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,10 +21,20 @@ public class UserFragment extends Fragment {
     private ForumRecyclerAdapter adapter;
     private EditText doubt;
     private ImageButton Send;
+    private Button Send;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+e4125ff9e3b51a1eed95da66167512d2128e68e8
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_user, container, false);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.user_swipe);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //Send new GET request to server
+            }
+        });
         recyclerView = (RecyclerView) rootView.findViewById(R.id.userRecycler);
         doubt = (EditText) rootView.findViewById(R.id.doubt);
         adapter = new ForumRecyclerAdapter(getActivity(), getData());

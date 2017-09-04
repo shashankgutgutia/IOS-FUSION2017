@@ -2,6 +2,7 @@ package com.adgvit.iosfusion2017;
 
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
 
     private RecyclerView recyclerView;
     private ForumRecyclerAdapter adapter;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -23,6 +25,13 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
         adapter = new ForumRecyclerAdapter(getActivity(), getData());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.trending_swipe);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //Send new GET request to server
+            }
+        });
         return rootView;
     }
 
