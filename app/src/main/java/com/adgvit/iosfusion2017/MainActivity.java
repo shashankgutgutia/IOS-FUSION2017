@@ -1,9 +1,12 @@
 package com.adgvit.iosfusion2017;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.BoolRes;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private IntentIntegrator qrScan;
     private ImageView swipeButton;
     public static String name,regno,mobile,email;
+    public boolean login = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +41,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         qrScan = new IntentIntegrator(this);
         
         arrow = (ImageView) findViewById(R.id.arrow);
+        SharedPreferences sp = getSharedPreferences("key", 0);
+        login = Boolean.parseBoolean(sp.getString("datavalue",""));
+        Log.i("value of login", String.valueOf(login));
         arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /* add if case
-                if authenticated, intent should go to NavDraActivity rather than QrActivity */
-                qrScan.initiateScan();
+                if(login == true) {
+                    Intent i = new Intent(MainActivity.this, NavDraActivity.class);
+                    startActivity(i);
+                } else {
+                    qrScan.initiateScan();
+                }
             }
         });
     }
@@ -55,8 +65,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        //check for authentication
-        qrScan.initiateScan();
+        if(login == true) {
+            Intent in = new Intent(MainActivity.this, NavDraActivity.class);
+            startActivity(in);
+        } else {
+            qrScan.initiateScan();
+        }
     }
 
     public class LearnGesture extends GestureDetector.SimpleOnGestureListener {
@@ -94,7 +108,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     regno = obj.getString("regno");
                     mobile = obj.getString("mobile");
                     email = obj.getString("email");
-
+                    login = true;
+                    SharedPreferences sp = getSharedPreferences("key", 0);
+                    SharedPreferences.Editor sedt = sp.edit();
+                    sedt.putString("datavalue", String.valueOf(login));
+                    sedt.commit();
                     Intent intent=new Intent(MainActivity.this,NavDraActivity.class);
 //                    intent.putExtra("PartName",name);
                     startActivity(intent);
