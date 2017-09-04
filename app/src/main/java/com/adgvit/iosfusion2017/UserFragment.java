@@ -43,7 +43,7 @@ public class UserFragment extends Fragment {
 
     public List<ForumItem> getData(){
         List<ForumItem> data = new ArrayList<>();
-        String[] questions = {"Yes this is a valid doubt", "Yes this module is working", "Hopefully it is working"};
+        String[] questions = {"Yes this is a valid doubt if multiple lines are being supported or not if u can read this then it is being supported else it would not have been possible", "Yes this module is working", "Hopefully it is working"};
         for (int i = 0; i < questions.length; i++) {
             ForumItem current = new ForumItem();
             current.question = questions[i];

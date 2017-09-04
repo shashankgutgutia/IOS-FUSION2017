@@ -55,6 +55,20 @@ public class NavDraActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.nav_dra, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem menuItem=menu.findItem(R.id.attend);
+        menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Fragment frag=new Attendance();
+                viewIsAtHome = false;
+                getSupportActionBar().setTitle("Attendance");
+                FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.frame,frag);
+                ft.commit();
+                return true;
+            }
+        });
         return true;
     }
 

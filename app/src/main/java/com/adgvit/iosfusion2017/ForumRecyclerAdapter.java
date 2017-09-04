@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -42,12 +42,12 @@ public class ForumRecyclerAdapter extends RecyclerView.Adapter<ForumRecyclerAdap
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView doubt;
-        ImageButton upVote;
+        ImageView upVote;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             doubt = (TextView) itemView.findViewById(R.id.ques);
-            upVote = (ImageButton) itemView.findViewById(R.id.upVote);
+            upVote = (ImageView) itemView.findViewById(R.id.upVote);
             Boolean clicked =new Boolean(false);
             upVote.setTag(clicked);
             upVote.setOnClickListener(new View.OnClickListener() {
