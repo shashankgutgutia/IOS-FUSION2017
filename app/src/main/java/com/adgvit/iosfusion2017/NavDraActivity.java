@@ -9,8 +9,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class NavDraActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,9 +36,6 @@ public class NavDraActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         displayview(R.id.time);
 
-//        String partName=getIntent().getStringExtra("PartName");
-//        String partname=MainActivity.name;
-//        String partreg=MainActivity.regno;
     }
 
     @Override
