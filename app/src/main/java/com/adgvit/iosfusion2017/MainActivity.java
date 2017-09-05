@@ -3,7 +3,6 @@ package com.adgvit.iosfusion2017;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.BoolRes;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -79,13 +78,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
-            if(event2.getY() < event1.getY()) {
-                //down to up swipe
-                //check for authentication here
-                qrScan.initiateScan();
+            if(login == true) {
+                Intent i = new Intent(MainActivity.this, NavDraActivity.class);
+                startActivity(i);
             }
-            else if(event2.getY() > event1.getY()) {
-                //up to down swipe
+            else {
+                if(event2.getY() < event1.getY()) {
+                    //down to up swipe
+                    //check for authentication here
+                    qrScan.initiateScan();
+                }
+                else if(event2.getY() > event1.getY()) {
+                    //up to down swipe
+                }
+                return true;
             }
             return true;
         }
