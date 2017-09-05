@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
+    android:id="@+id/navlayout"
     android:background="@drawable/background2"
     android:gravity="bottom"
     android:orientation="vertical"
@@ -54,7 +55,7 @@
             android:layout_marginBottom="8dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintTop_toBottomOf="@+id/pname"
+            app:layout_constraintTop_toBottomOf="@id/pname"
             />
 
     </android.support.constraint.ConstraintLayout>

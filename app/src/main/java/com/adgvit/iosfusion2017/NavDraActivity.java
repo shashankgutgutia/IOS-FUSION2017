@@ -9,9 +9,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class NavDraActivity extends AppCompatActivity
@@ -31,11 +31,17 @@ public class NavDraActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View navView=navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
         displayview(R.id.time);
 
+        String partname=MainActivity.name;
+        String partreg=MainActivity.regno;
+        TextView textView= (TextView) navView.findViewById(R.id.pname);
+        textView.setText(partname);
+        TextView textView2= (TextView) navView.findViewById(R.id.preg);
+        textView2.setText(partreg);
     }
 
     @Override
