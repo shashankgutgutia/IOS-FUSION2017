@@ -1,5 +1,7 @@
-package com.adgvit.iosfusion2017;
+package com.adgvit.iosfusion2017.data.remote;
 
+
+import com.adgvit.iosfusion2017.data.model.RefreshmentPost;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

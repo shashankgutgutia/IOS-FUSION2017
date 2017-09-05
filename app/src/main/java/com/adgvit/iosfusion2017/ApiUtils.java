@@ -1,5 +1,8 @@
 package com.adgvit.iosfusion2017;
 
+import com.adgvit.iosfusion2017.data.remote.ApiServices;
+import com.adgvit.iosfusion2017.data.remote.RetrofitClient;
+
 public class ApiUtils {
 
     public static final String BASE_URL="https://ios-fusion.herokuapp.com/";

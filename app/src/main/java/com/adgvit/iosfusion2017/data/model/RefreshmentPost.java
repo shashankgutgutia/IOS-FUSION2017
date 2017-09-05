@@ -1,4 +1,4 @@
-package com.adgvit.iosfusion2017;
+package com.adgvit.iosfusion2017.data.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

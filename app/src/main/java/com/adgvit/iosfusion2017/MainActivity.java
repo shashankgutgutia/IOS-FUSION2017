@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private GestureDetectorCompat gestureObject;
     private IntentIntegrator qrScan;
     private ImageView swipeButton;
-    public static String name,regno,mobile,email;
+    public static String name,regno,mobile,email, userId;
     public boolean login = false;
 
     @Override
@@ -38,22 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
 
         qrScan = new IntentIntegrator(this);
-        
-        arrow = (ImageView) findViewById(R.id.arrow);
+
         SharedPreferences sp = getSharedPreferences("key", 0);
-        //login = Boolean.parseBoolean(sp.getString("datavalue",""));
+        login = Boolean.parseBoolean(sp.getString("datavalue",""));
         Log.i("value of login", String.valueOf(login));
-        arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(login == true) {
-                    Intent i = new Intent(MainActivity.this, NavDraActivity.class);
-                    startActivity(i);
-                } else {
-                    qrScan.initiateScan();
-                }
-            }
-        });
     }
 
     @Override
@@ -109,18 +97,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     //converting the data to JSON
                     JSONObject obj = new JSONObject(result.getContents());
+                    userId = obj.toString();
+                    Log.d("userId", userId);
                     //set the values that are returned to the text views
                     name = obj.getString("name");
                     regno = obj.getString("regno");
                     mobile = obj.getString("mobile");
                     email = obj.getString("email");
                     login = true;
-                    /*SharedPreferences sp = getSharedPreferences("key", 0);
+                    SharedPreferences sp = getSharedPreferences("key", 0);
                     SharedPreferences.Editor sedt = sp.edit();
                     sedt.putString("datavalue", String.valueOf(login));
-                    sedt.commit();*/
+                    sedt.commit();
                     Intent intent=new Intent(MainActivity.this,NavDraActivity.class);
-//                    intent.putExtra("PartName",name);
                     startActivity(intent);
 
                 } catch (JSONException e) {

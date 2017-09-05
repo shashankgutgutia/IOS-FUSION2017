@@ -1,4 +1,4 @@
-package com.adgvit.iosfusion2017;
+package com.adgvit.iosfusion2017.data.remote;
 
 
 import retrofit2.Retrofit;
