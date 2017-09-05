@@ -36,9 +36,6 @@ public class NavDraActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         displayview(R.id.time);
 
-
-//        String partName=getIntent().getStringExtra("PartName");
-
         String partname=MainActivity.name;
         String partreg=MainActivity.regno;
         TextView textView= (TextView) navView.findViewById(R.id.pname);
@@ -113,6 +110,7 @@ public class NavDraActivity extends AppCompatActivity
         } else if (viewId == R.id.refresh) {
             viewIsAtHome = false;
             getSupportActionBar().setTitle("Refreshments");
+            fragment = new Refreshments();
         } else if (viewId == R.id.speak) {
             viewIsAtHome = false;
             getSupportActionBar().setTitle("Speaker");
