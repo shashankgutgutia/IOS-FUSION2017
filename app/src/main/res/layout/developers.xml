@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/background"
+    android:layout_centerInParent="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/android_dev"
+        android:text="Android Developers"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/shashank"
+        android:text="Shashank Gutgutia"
+        android:layout_below="@id/android_dev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/allan"
+        android:text="Allan Bastian"
+        android:layout_below="@id/shashank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/mehakmeet"
+        android:text="Mehakmeet Singh"
+        android:layout_below="@id/allan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/shivam"
+        android:text="Shivam Khanna"
+        android:layout_below="@id/mehakmeet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/naman"
+        android:text="Naman Krupia"
+        android:layout_below="@id/shivam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ios_dev"
+        android:text="iOS Developers"
+        android:textSize="25sp"
+        android:layout_marginTop="14dp"
+        android:layout_below="@id/naman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/mehul"
+        android:text="Mehul Singhal"
+        android:layout_below="@id/ios_dev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/indresh"
+        android:text="Indresh Arora"
+        android:layout_below="@id/mehul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/pranav"
+        android:text="Pranav Karani"
+        android:layout_below="@id/indresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/akshat"
+        android:text="Akshat Agarwal"
+        android:layout_below="@id/pranav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/backend_dev"
+        android:text="Backend Developer"
+        android:textSize="25sp"
+        android:layout_below="@id/akshat"
+        android:layout_marginTop="14dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ajmal"
+        android:text="Ajmal Siddiqui"
+        android:layout_below="@+id/backend_dev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/designers"
+        android:text="Designers"
+        android:textSize="25sp"
+        android:layout_marginTop="14dp"
+        android:layout_below="@id/ajmal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/aritro"
+        android:text="Aritro Paul"
+        android:layout_below="@id/designers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/naman2"
+        android:text="Naman Krupia"
+        android:layout_below="@id/aritro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
