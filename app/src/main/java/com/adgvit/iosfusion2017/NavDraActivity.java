@@ -110,6 +110,7 @@ public class NavDraActivity extends AppCompatActivity
         } else if (viewId == R.id.refresh) {
             viewIsAtHome = false;
             getSupportActionBar().setTitle("Refreshments");
+            fragment = new Refreshments();
         } else if (viewId == R.id.speak) {
             viewIsAtHome = false;
             getSupportActionBar().setTitle("Speaker");
