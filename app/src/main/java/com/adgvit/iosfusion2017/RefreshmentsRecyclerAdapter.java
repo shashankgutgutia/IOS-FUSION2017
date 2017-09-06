@@ -16,6 +16,7 @@ public class RefreshmentsRecyclerAdapter extends RecyclerView.Adapter<Refreshmen
     LayoutInflater inflater;
     List<RefreshmentItem> data = new ArrayList<>();
 
+
     public RefreshmentsRecyclerAdapter(Context context, List<RefreshmentItem> data) {
         inflater = LayoutInflater.from(context);
         this.data = data;
