@@ -69,7 +69,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r1part"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.666"
             app:layout_constraintLeft_toRightOf="@+id/ltime"
             android:layout_marginLeft="8dp"
             app:layout_constraintHorizontal_bias="0.829" />
