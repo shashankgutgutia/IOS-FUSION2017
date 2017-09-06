@@ -7,6 +7,7 @@
     android:background="@drawable/home"
     tools:context="com.adgvit.iosfusion2017.MainActivity">
 
+
     <ImageView
         android:id="@+id/arrow"
         android:src="@drawable/arrow"
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/swipe"/>
+
 
     <ImageView
         android:id="@+id/swipe"

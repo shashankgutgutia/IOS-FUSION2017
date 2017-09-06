@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView swipeButton;
     public static String name, regno, userId;
     public boolean login = false;
+    JSONObject obj;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         qrScan = new IntentIntegrator(this);
 
-        SharedPreferences sp = getSharedPreferences("key", 0);
+        sp = getSharedPreferences("key", 0);
         login = Boolean.parseBoolean(sp.getString("datavalue",""));
         Log.i("value of login", String.valueOf(login));
     }
@@ -99,23 +101,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //if qrCode has data
                 try {
                     //converting the data to JSON
-                    JSONObject obj = new JSONObject(result.getContents());
-                    userId = obj.toString();
-                    Log.d("userId", userId);
+                    obj = new JSONObject(result.getContents());
                     userId=obj.toString();
                     //set the values that are returned to the text views
                     name = obj.getString("name");
                     regno = obj.getString("regno");
                     login = true;
-                    SharedPreferences sp = getSharedPreferences("key", 0);
                     SharedPreferences.Editor sedt = sp.edit();
                     sedt.putString("datavalue", String.valueOf(login));
                     sedt.putString("Name", String.valueOf(name));
                     sedt.putString("Reg_Num", String.valueOf(regno));
-                    sedt.commit();
+                    sedt.apply();
                     Intent intent=new Intent(MainActivity.this,NavDraActivity.class);
                     startActivity(intent);
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                     //If control comes here

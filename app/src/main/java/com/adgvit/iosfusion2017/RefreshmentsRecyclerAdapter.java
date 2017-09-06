@@ -1,6 +1,7 @@
 package com.adgvit.iosfusion2017;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +16,12 @@ public class RefreshmentsRecyclerAdapter extends RecyclerView.Adapter<Refreshmen
 
     LayoutInflater inflater;
     List<RefreshmentItem> data = new ArrayList<>();
+    Bitmap bitmap;
 
-
-    public RefreshmentsRecyclerAdapter(Context context, List<RefreshmentItem> data) {
+    public RefreshmentsRecyclerAdapter(Context context, List<RefreshmentItem> data, Bitmap bitmap1) {
         inflater = LayoutInflater.from(context);
         this.data = data;
+        this.bitmap=bitmap1;
     }
 
     @Override
@@ -32,7 +34,7 @@ public class RefreshmentsRecyclerAdapter extends RecyclerView.Adapter<Refreshmen
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         RefreshmentItem current = data.get(position);
-        holder.img.setImageResource(R.drawable.qrcode);
+        holder.img.setImageBitmap(bitmap);
         holder.txt.setText(current.refreshmentType);
     }
 
