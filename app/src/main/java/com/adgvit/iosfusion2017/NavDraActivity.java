@@ -1,5 +1,6 @@
 package com.adgvit.iosfusion2017;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,8 +38,12 @@ public class NavDraActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         displayview(R.id.time);
 
-        String partname=MainActivity.name;
-        String partreg=MainActivity.regno;
+        SharedPreferences sp = getSharedPreferences("key", 0);
+
+        String partname = sp.getString("Name", "");
+        String partreg = sp.getString("Reg_Num", "");
+        Log.d("Name", partname);
+        Log.d("Reg_Num", partreg);
         TextView textView= (TextView) navView.findViewById(R.id.pname);
         textView.setText(partname);
         TextView textView2= (TextView) navView.findViewById(R.id.preg);

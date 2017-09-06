@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.zxing.common.StringUtils;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private GestureDetectorCompat gestureObject;
     private IntentIntegrator qrScan;
     private ImageView swipeButton;
-    public static String name,regno,mobile,email, userId;
+    public static String name, regno, userId;
     public boolean login = false;
 
     @Override
@@ -102,12 +103,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //set the values that are returned to the text views
                     name = obj.getString("name");
                     regno = obj.getString("regno");
-                    mobile = obj.getString("mobile");
-                    email = obj.getString("email");
                     login = true;
                     SharedPreferences sp = getSharedPreferences("key", 0);
                     SharedPreferences.Editor sedt = sp.edit();
                     sedt.putString("datavalue", String.valueOf(login));
+                    sedt.putString("Name", String.valueOf(name));
+                    sedt.putString("Reg_Num", String.valueOf(regno));
                     sedt.commit();
                     Intent intent=new Intent(MainActivity.this,NavDraActivity.class);
                     startActivity(intent);
