@@ -60,16 +60,15 @@ public class NavDraActivity extends AppCompatActivity
         ImageView imageView2;
         String qrattend=partreg+"_attendance";
         String qrrefresh=partreg+"_refreshment";
-        try {
-            bitmap1 = TextToImageEncode(qrattend);
-            imageView1.setImageBitmap(bitmap1);
-            bitmap2 = TextToImageEncode(qrrefresh);
-            imageView2.setImageBitmap(bitmap2);
-
-        } catch (WriterException e) {
-            e.printStackTrace();
-        }
-
+//        try {
+//            bitmap1 = TextToImageEncode(qrattend);
+//            imageView1.setImageBitmap(bitmap1);
+//            bitmap2 = TextToImageEncode(qrrefresh);
+//            imageView2.setImageBitmap(bitmap2);
+//
+//        } catch (WriterException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override

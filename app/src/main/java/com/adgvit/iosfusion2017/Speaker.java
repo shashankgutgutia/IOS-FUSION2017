@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 
 public class Speaker extends android.support.v4.app.Fragment implements View.OnClickListener{
@@ -17,6 +19,8 @@ public class Speaker extends android.support.v4.app.Fragment implements View.OnC
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.speaker_details, container, false);
+        Animation anim= AnimationUtils.loadAnimation(getContext(),R.anim.move);
+        rootView.startAnimation(anim);
         git = (ImageButton) rootView.findViewById(R.id.git);
         fb = (ImageButton) rootView.findViewById(R.id.fb);
         linkedIn = (ImageButton) rootView.findViewById(R.id.link);

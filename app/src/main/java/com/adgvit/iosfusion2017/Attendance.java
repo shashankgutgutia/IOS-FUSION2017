@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 public class Attendance extends Fragment {
@@ -21,7 +23,8 @@ public class Attendance extends Fragment {
         textView.setText(partname);
         TextView textView2= (TextView) rootView.findViewById(R.id.qrpreg);
         textView2.setText(partreg);
+        Animation anim= AnimationUtils.loadAnimation(getContext(),R.anim.move);
+        rootView.startAnimation(anim);
         return rootView;
     }
-
 }
