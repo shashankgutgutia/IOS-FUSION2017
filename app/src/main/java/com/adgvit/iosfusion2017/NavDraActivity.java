@@ -1,9 +1,11 @@
 package com.adgvit.iosfusion2017;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,12 +14,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
 
 public class NavDraActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public boolean viewIsAtHome;
+    Bitmap bitmap1,bitmap2;
+    public final static int QRcodeWidth = 500 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +52,24 @@ public class NavDraActivity extends AppCompatActivity
         textView.setText(partname);
         TextView textView2= (TextView) navView.findViewById(R.id.preg);
         textView2.setText(partreg);
+
+
+        //QR GENERATOR CODE
+        //Store it in imageView or whichever u need
+        ImageView imageView1;
+        ImageView imageView2;
+        String qrattend=partreg+"_attendance";
+        String qrrefresh=partreg+"_refreshment";
+        try {
+            bitmap1 = TextToImageEncode(qrattend);
+            imageView1.setImageBitmap(bitmap1);
+            bitmap2 = TextToImageEncode(qrrefresh);
+            imageView2.setImageBitmap(bitmap2);
+
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -130,5 +158,38 @@ public class NavDraActivity extends AppCompatActivity
             ft.replace(R.id.frame,fragment);
             ft.commit();
         }
+    }
+
+    public Bitmap TextToImageEncode(String Value) throws WriterException {
+        BitMatrix bitMatrix;
+        try {
+            bitMatrix = new MultiFormatWriter().encode(
+                    Value,
+                    BarcodeFormat.DATA_MATRIX.QR_CODE,
+                    QRcodeWidth, QRcodeWidth, null
+            );
+
+        } catch (IllegalArgumentException Illegalargumentexception) {
+
+            return null;
+        }
+        int bitMatrixWidth = bitMatrix.getWidth();
+
+        int bitMatrixHeight = bitMatrix.getHeight();
+
+        int[] pixels = new int[bitMatrixWidth * bitMatrixHeight];
+
+        for (int y = 0; y < bitMatrixHeight; y++) {
+            int offset = y * bitMatrixWidth;
+
+            for (int x = 0; x < bitMatrixWidth; x++) {
+
+                pixels[offset + x] = bitMatrix.get(x, y) ? ContextCompat.getColor(this,R.color.QRCodeBlack):ContextCompat.getColor(this,R.color.colorAccent);
+            }
+        }
+        Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_4444);
+
+        bitmap.setPixels(pixels, 0, 500, 0, 0, bitMatrixWidth, bitMatrixHeight);
+        return bitmap;
     }
 }

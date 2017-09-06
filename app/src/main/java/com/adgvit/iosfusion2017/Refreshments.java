@@ -30,7 +30,7 @@ public class Refreshments extends Fragment {
 
     public List<RefreshmentItem> getData() {
         List<RefreshmentItem> data = new ArrayList<>();
-        String[] ref = {"Coffee", "Lunch"};
+        String[] ref = {"coffee", "lunch"};
         for(int i = 0; i < ref.length; i++) {
             RefreshmentItem current = new RefreshmentItem();
             current.refreshmentType = ref[i];
