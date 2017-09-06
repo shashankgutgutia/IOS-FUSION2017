@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -20,16 +22,17 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageView arrow;
     private GestureDetectorCompat gestureObject;
     private IntentIntegrator qrScan;
     private ImageView swipeButton;
-    public static String name,regno,mobile,email,userId;
+    public static String name, regno, userId;
     public boolean login = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
         swipeButton = (ImageView) findViewById(R.id.arrow);
@@ -38,22 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
 
         qrScan = new IntentIntegrator(this);
-        
-        arrow = (ImageView) findViewById(R.id.arrow);
+
         SharedPreferences sp = getSharedPreferences("key", 0);
-        //login = Boolean.parseBoolean(sp.getString("datavalue",""));
+        login = Boolean.parseBoolean(sp.getString("datavalue",""));
         Log.i("value of login", String.valueOf(login));
-        arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(login == true) {
-                    Intent i = new Intent(MainActivity.this, NavDraActivity.class);
-                    startActivity(i);
-                } else {
-                    qrScan.initiateScan();
-                }
-            }
-        });
     }
 
     @Override
@@ -109,16 +100,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     //converting the data to JSON
                     JSONObject obj = new JSONObject(result.getContents());
+                    userId = obj.toString();
+                    Log.d("userId", userId);
                     userId=obj.toString();
                     //set the values that are returned to the text views
                     name = obj.getString("name");
                     regno = obj.getString("regno");
-                    mobile = obj.getString("mobile");
-                    email = obj.getString("email");
                     login = true;
                     SharedPreferences sp = getSharedPreferences("key", 0);
                     SharedPreferences.Editor sedt = sp.edit();
                     sedt.putString("datavalue", String.valueOf(login));
+                    sedt.putString("Name", String.valueOf(name));
+                    sedt.putString("Reg_Num", String.valueOf(regno));
                     sedt.commit();
                     Intent intent=new Intent(MainActivity.this,NavDraActivity.class);
                     startActivity(intent);

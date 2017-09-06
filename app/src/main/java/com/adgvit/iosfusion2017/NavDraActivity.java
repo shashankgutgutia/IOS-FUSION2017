@@ -1,5 +1,6 @@
 package com.adgvit.iosfusion2017;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,6 +12,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +24,9 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 
 public class NavDraActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -47,8 +53,12 @@ public class NavDraActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         displayview(R.id.time);
 
-        String partname=MainActivity.name;
-        String partreg=MainActivity.regno;
+        SharedPreferences sp = getSharedPreferences("key", 0);
+
+        String partname = sp.getString("Name", "");
+        String partreg = sp.getString("Reg_Num", "");
+        Log.d("Name", partname);
+        Log.d("Reg_Num", partreg);
         TextView textView= (TextView) navView.findViewById(R.id.pname);
         textView.setText(partname);
         TextView textView2= (TextView) navView.findViewById(R.id.preg);
@@ -57,19 +67,27 @@ public class NavDraActivity extends AppCompatActivity
 
         //QR GENERATOR CODE
         //Store it in imageView or whichever u need
-        ImageView imageView1;
-        ImageView imageView2;
-        String qrattend=partreg+"_attendance";
-        String qrrefresh=partreg+"_refreshment";
-//        try {
-//            bitmap1 = TextToImageEncode(qrattend);
-//            imageView1.setImageBitmap(bitmap1);
-//            bitmap2 = TextToImageEncode(qrrefresh);
-//            imageView2.setImageBitmap(bitmap2);
-//
-//        } catch (WriterException e) {
-//            e.printStackTrace();
-//        }
+        String attendance, refreshment;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        String qrattend = partreg + "_attendance";
+        String qrrefresh = partreg + "_refreshment";
+        try {
+            bitmap1 = TextToImageEncode(qrattend);
+            bitmap1.compress(Bitmap.CompressFormat.PNG, 100, baos);
+            byte[] b = baos.toByteArray();
+            attendance = Base64.encodeToString(b, Base64.DEFAULT);
+            bitmap2 = TextToImageEncode(qrrefresh);
+            bitmap2.compress(Bitmap.CompressFormat.PNG, 100, baos);
+            byte[] c = baos.toByteArray();
+            refreshment = Base64.encodeToString(c, Base64.DEFAULT);
+            SharedPreferences.Editor sedt = sp.edit();
+            sedt.putString("attendance", attendance);
+            sedt.putString("refreshment", refreshment);
+            sedt.commit();
+
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
