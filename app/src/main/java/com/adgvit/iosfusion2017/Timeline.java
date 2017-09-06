@@ -16,13 +16,17 @@ import java.util.ArrayList;
 
 public class Timeline extends Fragment {
 
-    private String[] day={"Day 1","Day 1","Day 1","Day 1","Day 1"};
+    private String[] day={"Day 1","Day 1","Day 1","Day 1","Day 1","Day 1","Day 1","Day 1",
+                          "Day 2","Day 2","Day 2","Day 2","Day 2","Day 2","Day 2","Day 2"};
 
-    private String[] times={"9:00-10:00","10:00-11:00","11:00-12:00","1:00-2:00","2:00-3:00"};
+    private String[] times={"3:15 pm","3:30 pm","4:00 pm","4:15 pm","4:45 pm","7:30 pm","8:30 pm","11:30 pm",
+                            "11:15 am","11:30 am","12:00 pm","3:00 pm","3:30 pm","5:30 pm","6:00 pm","8:00 pm"};
 
-    private String[] title={"Welcome to ios Fusion","Breakfast ready","Snacks ready","Get set code","Snacks ready"};
+    private String[] title={"Welcome to Ios Fusion","Reporting Time","Commencement","Inauguration","Speaker takes over","Refreshments","Workshop is Resumed","Wrap Up",
+                            "Registration Desk Setup","Reporting Time","Workshop Resumes","Refreshments","Workshop Resumes","Break","Workshop Resumes","Workshop is Concluded"};
 
-    private String[] details={"Instruction1","Instruction2","Instruction3","Instruction4","Instruction5"};
+    private String[] details={"Registration Desks Setup","Reporting Time for Participants","Commencement of the Workshop","Inaugural address detailing chapter and its highlights","Step by step walk-through for the App Development process","The time arrives for relaxation: Refreshments are provided","Time to get back to Work","Pack your bags and head home",
+                              "Registration Desks Setup","Reporting Time for Participants","The workshop resumes as we pick up from where we left off","Refreshments are provided","Get back to work as workshop continues","Take a break","The final session","Thanking you for participation. Hope to see you next year!"};
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;

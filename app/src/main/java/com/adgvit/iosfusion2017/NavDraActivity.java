@@ -30,6 +30,7 @@ public class NavDraActivity extends AppCompatActivity
     public boolean viewIsAtHome;
     Bitmap bitmap1,bitmap2;
     public final static int QRcodeWidth = 500 ;
+    public NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class NavDraActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         View navView=navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
         displayview(R.id.time);
@@ -130,9 +131,11 @@ public class NavDraActivity extends AppCompatActivity
         return true;
     }
     public void displayview(int viewId){
+
         Fragment fragment=null;
         String title = getString(R.string.app_name);
         if (viewId == R.id.time) {
+            navigationView.setCheckedItem(viewId);
             getSupportActionBar().setTitle("Timeline");
             fragment=new Timeline();
             viewIsAtHome = true;
