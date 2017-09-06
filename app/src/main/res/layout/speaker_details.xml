@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:textSize="22sp"
             android:textColor="#999"
-            android:text="Developer"
+            android:text="iOS Developer"
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginRight="8dp"
