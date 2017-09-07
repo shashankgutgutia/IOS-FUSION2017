@@ -1,162 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/speaker_ticket"
-    android:layout_centerInParent="true"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_centerInParent="true">
 
-        <RelativeLayout
-            android:id="@+id/rel1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true">
-
-    <TextView
-        android:textStyle="bold"
-        android:id="@+id/android_dev"
-        android:text="Android Developers"
-        android:padding="2dp"
-        android:textSize="28sp"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:id="@+id/card11"
+        card_view:cardElevation="10dp"
+        card_view:contentPadding="5dp"
+        android:layout_margin="5dp"
+        card_view:cardCornerRadius="10dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="35dp">
 
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:id="@+id/shashank"
-        android:text="Shashank Gutgutia"
-        android:layout_below="@id/android_dev"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:id="@+id/allan"
-        android:text="Allan Bastian"
-        android:layout_below="@id/shashank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/ios_dev"
-        android:textStyle="bold"
-        android:text="iOS Developers"
-        android:textSize="28sp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/allan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/mehul"
-        android:textSize="20sp"
-        android:text="Mehul Singhal"
-        android:layout_below="@id/ios_dev"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/indresh"
-        android:textSize="20sp"
-        android:text="Indresh Arora"
-        android:layout_below="@id/mehul"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/pranav"
-        android:textSize="20sp"
-        android:text="Pranav Karani"
-        android:layout_below="@id/indresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/akshat"
-        android:textSize="20sp"
-        android:text="Akshat Agarwal"
-        android:layout_below="@id/pranav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rel2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="23dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/backend_dev"
-        android:textStyle="bold"
-        android:layout_marginTop="2dp"
-        android:text="Backend Developer"
-        android:textSize="25sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/android_dev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:gravity="center"
+                android:text="Android Developers"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/ajmal"
-        android:textSize="20sp"
-        android:text="Ajmal Siddiqui"
-        android:layout_below="@+id/backend_dev"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/shashank"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shashank Gutgutia"
+                android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/designers"
-        android:textStyle="bold"
-        android:text="Designers"
-        android:textSize="24sp"
-        android:layout_marginTop="2dp"
-        android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/allan"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Allan Bastian"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card12"
+        card_view:cardElevation="10dp"
+        card_view:contentPadding="5dp"
+        card_view:cardCornerRadius="10dp"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ajmal"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/card11"
+        android:layout_marginTop="15dp">
 
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/aritro"
-        android:textSize="20sp"
-        android:text="Aritro Paul"
-        android:layout_below="@id/designers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/naman2"
-        android:textSize="20sp"
-        android:text="Naman Krupia"
-        android:layout_below="@id/aritro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/ios_dev"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="iOS Developers"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:text="Salonee Gupta"
-        android:textSize="20sp"
-        android:layout_below="@id/naman2"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/akshat"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Akshat Agarwal"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/pranav"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pranav Karani"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/indresh"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Indresh Arora"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/mehul"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mehul Singhal"
+                android:textSize="20sp" />
 
 
-    </RelativeLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card22"
+        card_view:cardElevation="10dp"
+        card_view:contentPadding="5dp"
+        android:layout_margin="5dp"
+        card_view:cardCornerRadius="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card12"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:id="@+id/backend_dev"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Backend Developer"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ajmal"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ajmal Siddiqui"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card23"
+        card_view:cardElevation="10dp"
+        card_view:contentPadding="5dp"
+        android:layout_margin="5dp"
+        card_view:cardCornerRadius="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card22"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/designers"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Designers"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/aritro"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aritro Paul"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/naman2"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Naman Krupia"
+                android:textSize="20sp" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Salonee Gupta"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
 
 </RelativeLayout>

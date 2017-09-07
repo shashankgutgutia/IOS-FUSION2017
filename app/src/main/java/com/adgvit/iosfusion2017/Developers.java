@@ -15,7 +15,7 @@ public class Developers extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.developers, container, false);
-        Animation anim= AnimationUtils.loadAnimation(getContext(),R.anim.move);
+        Animation anim= AnimationUtils.loadAnimation(getContext(),R.anim.move2);
         view.startAnimation(anim);
         return view;
     }
