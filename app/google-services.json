@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "342302240126",
+    "firebase_url": "https://iosfusion-21c51.firebaseio.com",
+    "project_id": "iosfusion-21c51",
+    "storage_bucket": "iosfusion-21c51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342302240126:android:9586db87a5994295",
+        "android_client_info": {
+          "package_name": "com.adgvit.iosfusion2017"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342302240126-0hno9nesc5tkmv0dnkoon9t9o2ae9ob5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOks95WIJSmwgGwZfts1o14gMokXYGoOU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

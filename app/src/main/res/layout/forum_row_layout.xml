@@ -28,7 +28,7 @@
                 android:id="@+id/ques"
                 android:padding="6dp"
                 android:text="The user's question will be shown here because it is being tested for longer texts how will they appear"
-                android:layout_width="263dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -41,22 +41,6 @@
                 app:layout_constraintHorizontal_bias="0.125"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <ImageView
-                android:id="@+id/upVote"
-                android:src="@drawable/like2"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginLeft="278dp"
-                app:layout_constraintLeft_toLeftOf="@+id/ques"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="8dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.3" />
 
         </android.support.constraint.ConstraintLayout>
 
