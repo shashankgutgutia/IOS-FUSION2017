@@ -7,13 +7,24 @@
 
     <Button
         android:id="@+id/getWifi"
-        android:text=" GET WIFI DETAILS "
+        android:padding="10dp"
+        android:text=" SHOW WIFI CREDENTIALS "
+        android:textSize="24sp"
         android:textColor="#ffffff"
         android:background="@drawable/buttonlook"
-        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/wifi"/>
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:textColor="#605e5d"
+        android:text="Copyright (c) 2016-2017 VOLSBB Inc. All rights reserved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/wifi"

@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/background"
+    android:background="@drawable/speaker_ticket"
     android:layout_centerInParent="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:id="@+id/rel1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true">
+
     <TextView
-        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
         android:id="@+id/android_dev"
         android:text="Android Developers"
-        android:textSize="25sp"
+        android:padding="2dp"
+        android:textSize="28sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_centerHorizontal="true"
+        android:textSize="20sp"
         android:id="@+id/shashank"
         android:text="Shashank Gutgutia"
         android:layout_below="@id/android_dev"
@@ -24,41 +35,29 @@
 
     <TextView
         android:layout_centerHorizontal="true"
+        android:textSize="20sp"
         android:id="@+id/allan"
         android:text="Allan Bastian"
         android:layout_below="@id/shashank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+
     <TextView
         android:layout_centerHorizontal="true"
-        android:id="@+id/mehakmeet"
-        android:text="Mehakmeet Singh"
+        android:id="@+id/ios_dev"
+        android:textStyle="bold"
+        android:text="iOS Developers"
+        android:textSize="28sp"
+        android:layout_marginTop="20dp"
         android:layout_below="@id/allan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:layout_centerHorizontal="true"
-        android:id="@+id/shivam"
-        android:text="Shivam Khanna"
-        android:layout_below="@id/mehakmeet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/ios_dev"
-        android:text="iOS Developers"
-        android:textSize="25sp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/mehakmeet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_centerHorizontal="true"
         android:id="@+id/mehul"
+        android:textSize="20sp"
         android:text="Mehul Singhal"
         android:layout_below="@id/ios_dev"
         android:layout_width="wrap_content"
@@ -67,6 +66,7 @@
     <TextView
         android:layout_centerHorizontal="true"
         android:id="@+id/indresh"
+        android:textSize="20sp"
         android:text="Indresh Arora"
         android:layout_below="@id/mehul"
         android:layout_width="wrap_content"
@@ -75,6 +75,7 @@
     <TextView
         android:layout_centerHorizontal="true"
         android:id="@+id/pranav"
+        android:textSize="20sp"
         android:text="Pranav Karani"
         android:layout_below="@id/indresh"
         android:layout_width="wrap_content"
@@ -83,42 +84,56 @@
     <TextView
         android:layout_centerHorizontal="true"
         android:id="@+id/akshat"
+        android:textSize="20sp"
         android:text="Akshat Agarwal"
         android:layout_below="@id/pranav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="23dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true">
+
     <TextView
         android:layout_centerHorizontal="true"
         android:id="@+id/backend_dev"
+        android:textStyle="bold"
+        android:layout_marginTop="2dp"
         android:text="Backend Developer"
         android:textSize="25sp"
-        android:layout_below="@id/akshat"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:layout_centerHorizontal="true"
         android:id="@+id/ajmal"
+        android:textSize="20sp"
         android:text="Ajmal Siddiqui"
         android:layout_below="@+id/backend_dev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:layout_centerHorizontal="true"
         android:id="@+id/designers"
+        android:textStyle="bold"
         android:text="Designers"
-        android:textSize="25sp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/ajmal"
+        android:textSize="24sp"
+        android:layout_marginTop="2dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ajmal"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_centerHorizontal="true"
         android:id="@+id/aritro"
+        android:textSize="20sp"
         android:text="Aritro Paul"
         android:layout_below="@id/designers"
         android:layout_width="wrap_content"
@@ -127,6 +142,7 @@
     <TextView
         android:layout_centerHorizontal="true"
         android:id="@+id/naman2"
+        android:textSize="20sp"
         android:text="Naman Krupia"
         android:layout_below="@id/aritro"
         android:layout_width="wrap_content"
@@ -134,9 +150,13 @@
 
     <TextView
         android:text="Salonee Gupta"
+        android:textSize="20sp"
         android:layout_below="@id/naman2"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
 
 </RelativeLayout>

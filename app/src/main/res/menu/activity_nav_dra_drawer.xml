@@ -29,6 +29,10 @@
             android:id="@+id/aboutus"
             android:icon="@drawable/aboutus"
             android:title="About Us" />
+        <item
+            android:id="@+id/develop"
+            android:icon="@drawable/developers"
+            android:title="Developers"/>
 
     </group>
 </menu>

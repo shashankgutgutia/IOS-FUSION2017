@@ -134,6 +134,11 @@ public class NavDraActivity extends AppCompatActivity
             getSupportActionBar().setTitle("About Us");
             fragment=new AboutUs();
         }
+        else if (viewId == R.id.develop) {
+            viewIsAtHome = false;
+            getSupportActionBar().setTitle("Developers");
+            fragment = new Developers();
+        }
         if (fragment!=null){
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.frame,fragment);
