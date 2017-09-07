@@ -89,7 +89,6 @@ public class Timeline extends Fragment {
             progressDialog.setMessage("Loading...Please Wait");
             progressDialog.setTitle("Welcome to iOS Fusion!");
             progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            progressDialog.setCancelable(false);
             progressDialog.show();
         }
 

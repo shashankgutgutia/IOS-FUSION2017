@@ -4,13 +4,14 @@ package com.adgvit.iosfusion2017;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageButton;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +19,11 @@ import java.util.List;
 public class UserFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private ForumRecyclerAdapter adapter;
-    private EditText doubt;
-    private ImageButton Send;
+    private MessageAdapter mMessageAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    public FirebaseDatabase mFirebaseDatabse;
+    private DatabaseReference mMessagesDatabaseReference;
+    private ChildEventListener mChildEventListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,31 +36,50 @@ public class UserFragment extends Fragment {
             }
         });
         recyclerView = (RecyclerView) rootView.findViewById(R.id.userRecycler);
-        doubt = (EditText) rootView.findViewById(R.id.doubt);
-        adapter = new ForumRecyclerAdapter(getActivity(), getData());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        Send = (ImageButton) rootView.findViewById(R.id.send);
-        Send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String ques = doubt.getText().toString();
-                //POST ques to server
-            }
-        });
-        // Inflate the layout for this fragment
+//        // Inflate the layout for this fragment
+        mFirebaseDatabse=FirebaseDatabase.getInstance();
+        mMessagesDatabaseReference=mFirebaseDatabse.getReference().child("Forum");
+        List<ForumModel> friendlyMessages = new ArrayList<>();
+//        mMessageAdapter = new MessageAdapter(getContext(), R.layout.forum_row_layout, friendlyMessages);
+//        recyclerView.setAdapter(mMessageAdapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return rootView;
     }
 
-    public List<ForumItem> getData(){
-        List<ForumItem> data = new ArrayList<>();
-        String[] questions = {"Yes this is a valid doubt if multiple lines are being supported or not if u can read this then it is being supported else it would not have been possible", "Yes this module is working", "Hopefully it is working"};
-        for (int i = 0; i < questions.length; i++) {
-            ForumItem current = new ForumItem();
-            current.question = questions[i];
-            data.add(current);
-        }
-        return data;
-    }
+//    private void attachDatabaseReadListener(){
+//        if(mChildEventListener == null) {
+//            mChildEventListener = new ChildEventListener() {
+//                @Override
+//                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                    FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
+//                    mMessageAdapter.add(friendlyMessage);
+//                }
+//
+//                @Override
+//                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//                }
+//
+//                @Override
+//                public void onChildRemoved(DataSnapshot dataSnapshot) {
+//                }
+//
+//                @Override
+//                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//                }
+//
+//                @Override
+//                public void onCancelled(DatabaseError databaseError) {
+//                }
+//            };
+//            mMessagesDatabaseReference.addChildEventListener(mChildEventListener);
+//        }
+//    }
+//
+//    public void detachDatabaseReadListener(){
+//        if(mChildEventListener!=null) {
+//            mMessagesDatabaseReference.removeEventListener(mChildEventListener);
+//            mChildEventListener = null;
+//        }
+//    }
 
 }

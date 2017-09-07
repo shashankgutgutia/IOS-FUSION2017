@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class ForumRecyclerAdapter extends RecyclerView.Adapter<ForumRecyclerAdap
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        ForumItem current = data.get(position);
-        holder.doubt.setText(current.question);
+        ForumItem forumItem=data.get(position);
+        holder.doubt.setText(forumItem.question);
     }
 
     @Override
@@ -42,27 +41,10 @@ public class ForumRecyclerAdapter extends RecyclerView.Adapter<ForumRecyclerAdap
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView doubt;
-        ImageView upVote;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             doubt = (TextView) itemView.findViewById(R.id.ques);
-            upVote = (ImageView) itemView.findViewById(R.id.upVote);
-            Boolean clicked =new Boolean(false);
-            upVote.setTag(clicked);
-            upVote.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if((Boolean)upVote.getTag()==false){
-                        upVote.setImageResource(R.drawable.like);
-                        upVote.setTag(true);
-                    }
-                    else {
-                        upVote.setImageResource(R.drawable.like2);
-                        upVote.setTag(false);
-                    }
-                }
-            });
         }
     }
 }
