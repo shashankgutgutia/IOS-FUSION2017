@@ -31,7 +31,8 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
     public RecyclerView recyclerView;
     public ForumRecyclerAdapter adapter;
     public SwipeRefreshLayout mSwipeRefreshLayout;
-    String parname,parreg;
+    public String parname,parreg;
+    public int count = 0;
     public List<ForumItem> list1;
 
     @Override

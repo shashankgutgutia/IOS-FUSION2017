@@ -11,17 +11,27 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Wifi extends Fragment {
 
     public TextView WifiUserName, WifiPassWord, info, user, pass;
     public Button getDetails;
     public SharedPreferences sp = getContext().getSharedPreferences("key", 0);
-    public String attendance;
+    public String attendance, Reg_Num;
+    public FirebaseDatabase mFirebaseDatabase;
+    public DatabaseReference mDatabaseReference;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.wifilayout, container, false);
+
+        Reg_Num = sp.getString("Reg_Num", "");
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = mFirebaseDatabase.getReference().child("Wifi").child(Reg_Num);
+
         WifiUserName = (TextView) rootView.findViewById(R.id.id);
         WifiPassWord = (TextView) rootView.findViewById(R.id.password);
         info = (TextView) rootView.findViewById(R.id.info);
@@ -36,6 +46,8 @@ public class Wifi extends Fragment {
                  */
                 attendance = sp.getString("attendance_status", "");
                 if(attendance == "Yes") {
+                WifiUserName.setText(mDatabaseReference.child("PIN").getKey());
+                WifiPassWord.setText(mDatabaseReference.child("User").getKey());
                 WifiUserName.setVisibility(View.VISIBLE);
                 WifiPassWord.setVisibility(View.VISIBLE);
                 info.setVisibility(View.VISIBLE);
@@ -50,6 +62,9 @@ public class Wifi extends Fragment {
 
         //GET function
         //Replace both UserName and PassWord using Retrofit
+
+
+
         return rootView;
     }
 }

@@ -42,10 +42,10 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:visibility="invisible"
-        android:layout_below="@+id/wifi"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wifi"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/user"
