@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,19 +37,19 @@ public class Attendance extends Fragment {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         sp = getContext().getSharedPreferences("key", 0);
-        SharedPreferences.Editor sedt = sp.edit();
+        final SharedPreferences.Editor sedt = sp.edit();
 
         String partname = sp.getString("Name", "");
         String partreg = sp.getString("Reg_Num", "");
         mDatabaseReference = firebaseDatabase.getReference().child("Attendance").child(partreg);
-        attendance = mDatabaseReference.getKey().toString();
-        sedt.putString("attendance_status", attendance);
-        sedt.commit();
+        //sedt.putString("attendance_status", attendance);
+        //sedt.commit();
         mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-/*                attendance = mDatabaseReference.toString();
-                sedt.putString("attendance_status", attendance);
+                attendance = mDatabaseReference.toString();
+                Log.d("attendance", attendance);
+                /*sedt.putString("attendance_status", attendance);
                 sedt.commit();*/
             }
 

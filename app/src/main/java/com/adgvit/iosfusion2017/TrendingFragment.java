@@ -74,7 +74,7 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
         popup.setContentView(layout);
         int OFFSET_X = 30;
         int OFFSET_Y = 30;
-        popup.setWidth(600);
+        popup.setWidth(800);
         popup.setHeight(600);
         popup.setFocusable(true);
         popup.showAtLocation(layout, Gravity.CENTER ,50, 50);
