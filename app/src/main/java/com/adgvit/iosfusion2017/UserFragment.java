@@ -1,6 +1,7 @@
 package com.adgvit.iosfusion2017;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -28,6 +29,8 @@ public class UserFragment extends Fragment {
     private DatabaseReference mMessagesDatabaseReference;
     private ChildEventListener mChildEventListener;
     public List<ForumModel> Messages;
+    public SharedPreferences sp;
+    String partreg;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,8 +46,8 @@ public class UserFragment extends Fragment {
         mFirebaseDatabse=FirebaseDatabase.getInstance();
         mMessagesDatabaseReference=mFirebaseDatabse.getReference().child("Forum");
         Messages = new ArrayList<>();
-
-
+        sp = getContext().getSharedPreferences("key", 0);
+        partreg = sp.getString("Reg_Num", "");
         attachDatabaseReadListener();
         adapter=new MessageAdapter(getActivity(),Messages);
         recyclerView.setAdapter(adapter);
@@ -58,7 +61,12 @@ public class UserFragment extends Fragment {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     ForumModel forumModel = dataSnapshot.getValue(ForumModel.class);
-                    Messages.add(forumModel);
+                    //Condition to check which questions to be posted
+                    Boolean b1= new String(forumModel.getVerified()).equals("Yes");
+                    Boolean b2= new String(forumModel.getName()).equals(partreg);
+                    if(b1 && !b2) {
+                        Messages.add(forumModel);
+                    }
                 }
 
                 @Override
