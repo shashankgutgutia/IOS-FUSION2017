@@ -35,6 +35,7 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
     public SwipeRefreshLayout mSwipeRefreshLayout;
 //    public String count;
     public String parname,parreg;
+    public int counter = 0;
     public List<ForumItem> list1;
     public View rootView;
 
@@ -89,8 +90,9 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
                 String ques = question.getText().toString();
                 String regno=parreg,name = parname,verified;
                 verified = "no";
-//                final String[] count = new String[1];
+                final String[] count = new String[1];
                 final ForumModel forum = new ForumModel(name,regno,verified,ques); // count to be added
+
 
                 myRef.addChildEventListener(new ChildEventListener() {
                     @Override
