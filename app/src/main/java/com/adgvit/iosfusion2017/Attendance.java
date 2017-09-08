@@ -28,24 +28,28 @@ public class Attendance extends Fragment {
     public String attendance = "No";
     public FirebaseDatabase firebaseDatabase;
     public DatabaseReference mDatabaseReference;
-    public SharedPreferences sp = getContext().getSharedPreferences("key", 0);
-    public SharedPreferences.Editor sedt = sp.edit();
+    public SharedPreferences sp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.attendancelayout, container, false);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
+        sp = getContext().getSharedPreferences("key", 0);
+        SharedPreferences.Editor sedt = sp.edit();
 
         String partname = sp.getString("Name", "");
         String partreg = sp.getString("Reg_Num", "");
         mDatabaseReference = firebaseDatabase.getReference().child("Attendance").child(partreg);
+        attendance = mDatabaseReference.getKey().toString();
+        sedt.putString("attendance_status", attendance);
+        sedt.commit();
         mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                attendance = mDatabaseReference.toString();
+/*                attendance = mDatabaseReference.toString();
                 sedt.putString("attendance_status", attendance);
-                sedt.commit();
+                sedt.commit();*/
             }
 
             @Override
