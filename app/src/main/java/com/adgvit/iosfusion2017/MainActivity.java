@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
+            sp = getSharedPreferences("key", 0);
+            login = Boolean.parseBoolean(sp.getString("datavalue",""));
             if(login == true) {
                 Intent i = new Intent(MainActivity.this, NavDraActivity.class);
                 startActivity(i);

@@ -6,13 +6,19 @@ public class ForumModel {
     String  regno;
     String verfified;
     String question;
+    int count;
 
-    public ForumModel(String name, String regno, String verfified, String question) {
+    public ForumModel(String name, String regno, String verfified, String question, int count) {
         this.name = name;
         this.regno = regno;
         this.verfified = verfified;
         this.question = question;
+        this.count = count;
     }
+
+    public int getCount() { return count; }
+
+    public void setCount(int count) { this.count = count; }
 
     public String getName() {
         return name;
