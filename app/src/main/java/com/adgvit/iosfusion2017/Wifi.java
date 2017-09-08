@@ -51,7 +51,20 @@ public class Wifi extends Fragment {
                 /* check if attendance has been noted
                     if done, show all text views, else keep invisible and show error
                  */
-                attendance = sp.getString("attendance_status", "");
+                //attendance = sp.getString("attendance_status", "");
+
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        attendance = dataSnapshot.getValue().toString();
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
                 if(attendance.equals("Yes")) {
                 WifiUserName.setText(mDatabaseReference.child("PIN").getKey());
