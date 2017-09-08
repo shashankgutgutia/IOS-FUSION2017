@@ -25,7 +25,8 @@ public class Wifi extends Fragment {
     public SharedPreferences sp;
     public String attendance, Reg_Num;
     public FirebaseDatabase mFirebaseDatabase;
-    public DatabaseReference mDatabaseReference, myRef;
+    public DatabaseReference mDatabaseReference, myRef, UserRef, PassRef;
+    public String userName, passWord;
 
     @Nullable
     @Override
@@ -38,6 +39,34 @@ public class Wifi extends Fragment {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference().child("Wifi").child(Reg_Num);
         myRef = mFirebaseDatabase.getReference().child("Attendance").child(Reg_Num);
+        UserRef = mFirebaseDatabase.getReference().child("Wifi").child(Reg_Num).child("User");
+        PassRef = mFirebaseDatabase.getReference().child("Wifi").child(Reg_Num).child("PIN");
+
+        UserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                userName = dataSnapshot.getValue().toString();
+                Log.d("username", userName);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        PassRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                passWord = dataSnapshot.getValue().toString();
+                Log.d("password", passWord);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         WifiUserName = (TextView) rootView.findViewById(R.id.id);
         WifiPassWord = (TextView) rootView.findViewById(R.id.password);
@@ -57,7 +86,20 @@ public class Wifi extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         attendance = dataSnapshot.getValue().toString();
+                        if(attendance.equals("Yes")) {
 
+
+                            WifiUserName.setText(userName);
+                            WifiPassWord.setText(passWord);
+                            WifiUserName.setVisibility(View.VISIBLE);
+                            WifiPassWord.setVisibility(View.VISIBLE);
+                            info.setVisibility(View.VISIBLE);
+                            user.setVisibility(View.VISIBLE);
+                            pass.setVisibility(View.VISIBLE);
+                            getDetails.setVisibility(View.INVISIBLE); }
+                        else {
+                            Toast.makeText(getContext(), "Attendance has not been marked", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override
@@ -66,18 +108,7 @@ public class Wifi extends Fragment {
                     }
                 });
 
-                if(attendance.equals("Yes")) {
-                WifiUserName.setText(mDatabaseReference.child("PIN").getKey());
-                WifiPassWord.setText(mDatabaseReference.child("User").getKey());
-                WifiUserName.setVisibility(View.VISIBLE);
-                WifiPassWord.setVisibility(View.VISIBLE);
-                info.setVisibility(View.VISIBLE);
-                user.setVisibility(View.VISIBLE);
-                pass.setVisibility(View.VISIBLE);
-                getDetails.setVisibility(View.INVISIBLE); }
-                else {
-                    Toast.makeText(getContext(), "Attendance has not been marked", Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
 

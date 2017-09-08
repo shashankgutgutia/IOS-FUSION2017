@@ -47,7 +47,7 @@ public class Attendance extends Fragment {
         mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                attendance = mDatabaseReference.toString();
+                attendance = dataSnapshot.getValue().toString();
                 Log.d("attendance", attendance);
                 /*sedt.putString("attendance_status", attendance);
                 sedt.commit();*/
