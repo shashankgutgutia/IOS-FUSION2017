@@ -2,53 +2,50 @@ package com.adgvit.iosfusion2017;
 
 
 public class ForumModel {
-    String name ;
-    String  regno;
-    String verfified;
-    String question;
-    int count;
+    private String Name;
+    private String Register;
+    private String Verified;
+    private String Question;
 
-    public ForumModel(String name, String regno, String verfified, String question, int count) {
-        this.name = name;
-        this.regno = regno;
-        this.verfified = verfified;
-        this.question = question;
-        this.count = count;
+    public ForumModel() {
     }
 
-    public int getCount() { return count; }
-
-    public void setCount(int count) { this.count = count; }
+    public ForumModel(String name, String register, String verified, String question) {
+        this.Name = name;
+        this.Register = register;
+        this.Verified = verified;
+        this.Question = question;
+    }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
     }
 
-    public String getRegno() {
-        return regno;
+    public String getRegister() {
+        return Register;
     }
 
-    public void setRegno(String regno) {
-        this.regno = regno;
+    public void setRegister(String register) {
+        Register = register;
     }
 
-    public String getVerfified() {
-        return verfified;
+    public String getVerified() {
+        return Verified;
     }
 
-    public void setVerfified(String verfified) {
-        this.verfified = verfified;
+    public void setVerified(String verified) {
+        Verified = verified;
     }
 
     public String getQuestion() {
-        return question;
+        return Question;
     }
 
     public void setQuestion(String question) {
-        this.question = question;
+        Question = question;
     }
 }
