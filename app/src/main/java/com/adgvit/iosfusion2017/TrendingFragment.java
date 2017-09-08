@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TrendingFragment extends android.support.v4.app.Fragment {
@@ -31,8 +32,8 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
     public RecyclerView recyclerView;
     public ForumRecyclerAdapter adapter;
     public SwipeRefreshLayout mSwipeRefreshLayout;
+//    public String count;
     public String parname,parreg;
-    public int count = 0;
     public List<ForumItem> list1;
 
     @Override
@@ -49,6 +50,7 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
         SharedPreferences sp = getContext().getSharedPreferences("key", 0);
         parname = sp.getString("Name", "");
         parreg = sp.getString("Reg_Num", "");
+        list1=new ArrayList<>();
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,8 +71,8 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
         popup.setContentView(layout);
         int OFFSET_X = 30;
         int OFFSET_Y = 30;
-        popup.setWidth(800);
-        popup.setHeight(800);
+        popup.setWidth(600);
+        popup.setHeight(600);
         popup.setFocusable(true);
         popup.showAtLocation(layout, Gravity.CENTER ,50, 50);
 
@@ -85,12 +87,13 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
                 String ques = question.getText().toString();
                 String regno=parreg,name = parname,verified;
                 verified = "no";
-                final String[] count = new String[1];
-                ForumModel forum = new ForumModel(name,regno,verified,ques);
+//                final String[] count = new String[1];
+                final ForumModel forum = new ForumModel(name,regno,verified,ques); // count to be added
+
                 myRef.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        count[0] = String.valueOf(dataSnapshot.getChildrenCount());
+//                        count = String.valueOf(dataSnapshot.getChildrenCount());
                     }
 
                     @Override
