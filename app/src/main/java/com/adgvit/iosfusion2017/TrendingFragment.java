@@ -32,7 +32,7 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
     public ForumRecyclerAdapter adapter;
     public SwipeRefreshLayout mSwipeRefreshLayout;
     public String parname,parreg;
-    public int count = 0;
+    public int counter = 0;
     public List<ForumItem> list1;
 
     @Override
@@ -86,7 +86,7 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
                 String regno=parreg,name = parname,verified;
                 verified = "no";
                 final String[] count = new String[1];
-                ForumModel forum = new ForumModel(name,regno,verified,ques);
+                ForumModel forum = new ForumModel(name,regno,verified,ques,counter);
                 myRef.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
