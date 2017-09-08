@@ -31,7 +31,7 @@ public class ForumFragPagerAdapter extends android.support.v4.app.FragmentPagerA
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0: return "FAQs";
-            case 1: return "YOUR QUESTIONS";
+            case 1: return "MY QUESTIONS";
         }
         return null;
     }

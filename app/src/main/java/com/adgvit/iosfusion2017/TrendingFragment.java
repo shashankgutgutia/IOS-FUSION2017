@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -35,10 +36,11 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
 //    public String count;
     public String parname,parreg;
     public List<ForumItem> list1;
+    public View rootView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_trending, container, false);
+        rootView = inflater.inflate(R.layout.fragment_trending, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.trendingRecycler);
         mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.trending_swipe);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -117,6 +119,8 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
                     }
                 });
                 myRef.push().setValue(forum);
+                TextView textView10= (TextView) rootView.findViewById(R.id.posted);
+                textView10.setVisibility(View.GONE);
                 ForumItem fitem=new ForumItem(ques);
                 list1.add(fitem);
                 adapter = new ForumRecyclerAdapter(getActivity(),list1);
@@ -127,5 +131,4 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
 
         });
     }
-
 }

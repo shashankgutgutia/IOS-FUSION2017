@@ -3,6 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/posted"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="You have not posted any questions yet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/trending_swipe"
         android:layout_width="match_parent"
@@ -19,6 +28,7 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
+        android:src="@drawable/ic_edit"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
