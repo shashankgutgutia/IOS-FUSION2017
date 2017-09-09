@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +35,12 @@ public class Wifi extends Fragment {
         sp = getContext().getSharedPreferences("key", 0);
         SharedPreferences.Editor sedt = sp.edit();
         Reg_Num = sp.getString("Reg_Num", "");
+        WifiUserName = (TextView) rootView.findViewById(R.id.id);
+        WifiPassWord = (TextView) rootView.findViewById(R.id.password);
+        info = (TextView) rootView.findViewById(R.id.info);
+        user = (TextView) rootView.findViewById(R.id.user);
+        pass = (TextView) rootView.findViewById(R.id.pass);
+        getDetails = (Button) rootView.findViewById(R.id.getWifi);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference().child("Wifi").child(Reg_Num);
         myRef = mFirebaseDatabase.getReference().child("Attendance").child(Reg_Num);
@@ -45,10 +50,9 @@ public class Wifi extends Fragment {
         UserRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                userName = dataSnapshot.getValue().toString();
-                Log.d("username", userName);
+                userName=dataSnapshot.getValue(String.class);
+                WifiUserName.setText(userName);
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -59,7 +63,7 @@ public class Wifi extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 passWord = dataSnapshot.getValue().toString();
-                Log.d("password", passWord);
+                WifiPassWord.setText(passWord);
             }
 
             @Override
@@ -67,13 +71,6 @@ public class Wifi extends Fragment {
 
             }
         });
-
-        WifiUserName = (TextView) rootView.findViewById(R.id.id);
-        WifiPassWord = (TextView) rootView.findViewById(R.id.password);
-        info = (TextView) rootView.findViewById(R.id.info);
-        user = (TextView) rootView.findViewById(R.id.user);
-        pass = (TextView) rootView.findViewById(R.id.pass);
-        getDetails = (Button) rootView.findViewById(R.id.getWifi);
         getDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,10 +84,6 @@ public class Wifi extends Fragment {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         attendance = dataSnapshot.getValue().toString();
                         if(attendance.equals("Yes")) {
-
-
-                            WifiUserName.setText(userName);
-                            WifiPassWord.setText(passWord);
                             WifiUserName.setVisibility(View.VISIBLE);
                             WifiPassWord.setVisibility(View.VISIBLE);
                             info.setVisibility(View.VISIBLE);
@@ -101,22 +94,12 @@ public class Wifi extends Fragment {
                             Toast.makeText(getContext(), "Attendance has not been marked", Toast.LENGTH_SHORT).show();
                         }
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
                     }
                 });
-
-
             }
         });
-
-        //GET function
-        //Replace both UserName and PassWord using Retrofit
-
-
-
         return rootView;
     }
 }

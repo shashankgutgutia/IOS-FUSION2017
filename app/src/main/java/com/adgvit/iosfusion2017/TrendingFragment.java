@@ -44,12 +44,6 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
         rootView = inflater.inflate(R.layout.fragment_trending, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.trendingRecycler);
         mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.trending_swipe);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                //Send new GET request to server
-            }
-        });
         SharedPreferences sp = getContext().getSharedPreferences("key", 0);
         parname = sp.getString("Name", "");
         parreg = sp.getString("Reg_Num", "");
@@ -89,7 +83,7 @@ public class TrendingFragment extends android.support.v4.app.Fragment {
             public void onClick(View view) {
                 String ques = question.getText().toString();
                 String regno=parreg,name = parname,verified;
-                verified = "no";
+                verified = "pending";
                 final String[] count = new String[1];
                 final ForumModel forum = new ForumModel(name,regno,verified,ques); // count to be added
 

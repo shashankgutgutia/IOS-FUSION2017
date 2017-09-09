@@ -63,8 +63,7 @@ public class UserFragment extends Fragment {
                     ForumModel forumModel = dataSnapshot.getValue(ForumModel.class);
                     //Condition to check which questions to be posted
                     Boolean b1= new String(forumModel.getVerified()).equals("Yes");
-                    Boolean b2= new String(forumModel.getName()).equals(partreg);
-                    if(b1 && !b2) {
+                    if(b1) {
                         Messages.add(forumModel);
                     }
                 }

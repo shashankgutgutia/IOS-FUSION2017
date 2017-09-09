@@ -32,7 +32,7 @@ public class Timeline extends Fragment {
                           "Day 2","Day 2","Day 2","Day 2","Day 2","Day 2","Day 2","Day 2"};
 
     private String[] times={"3:15 pm","3:30 pm","4:00 pm","4:15 pm","4:45 pm","7:30 pm","8:30 pm","11:30 pm",
-                            "11:15 am","11:30 am","12:00 pm","3:00 pm","3:30 pm","5:30 pm","6:00 pm","8:00 pm"};
+                            "3:15 pm","3:30 pm","4:00 pm","4:15 pm","4:45 pm","7:30 pm","8:30 pm","11:30 pm"};
 
     private String[] title={"Welcome to Ios Fusion","Reporting Time","Commencement","Inauguration","Speaker takes over","Refreshments","Workshop is Resumed","Wrap Up",
                             "Registration Desk Setup","Reporting Time","Workshop Resumes","Refreshments","Workshop Resumes","Break","Workshop Resumes","Workshop is Concluded"};
